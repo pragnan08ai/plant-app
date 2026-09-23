@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Houseplant Water Tracker</title>
+    <meta name="description" content="Simple browser-based plant watering schedule tracker." />
+    <meta property="og:title" content="Houseplant Water Tracker" />
+    <meta property="og:description" content="Simple browser-based plant watering schedule tracker." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- PWA Configuration -->
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#2E7D32" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="PlantTracker" />
+    <link rel="apple-touch-icon" href="assets/icon-192.png" />
+    <link rel="icon" type="image/png" href="assets/icon-192.png" />
+
+    <!-- Plain CSS Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      
+      <!-- App Header -->
+      <header class="app-header">
+        <div class="logo-badge" aria-hidden="true">🌿</div>
+        <h1 class="app-title">Plant Tracker</h1>
+        <p class="app-subtitle">Zero-friction watering schedule for happy indoor plants</p>
+      </header>
+
+      <!-- Add Plant Form Card -->
+      <section class="card" aria-labelledby="form-heading">
+        <h2 id="form-heading" class="card-title">🌱 Add a Plant</h2>
+        
+        <form id="plantForm" novalidate>
+          <div class="form-group">
+            <label for="plantName">
+              Plant Name <span class="required-star">*</span>
+            </label>
+            <input
+              type="text"
+              id="plantName"
+              name="plantName"
+              class="form-control"
+              placeholder="e.g., Monstera Deliciosa, Snake Plant"
+              autocomplete="off"
+              required
+            />
+            <div id="nameError" class="error-message">Plant name is required.</div>
+          </div>
+
+          <div class="form-group">
+            <label for="plantLocation">
+              Location / Room <span class="required-star">*</span>
+            </label>
+            <input
+              type="text"
+              id="plantLocation"
+              name="plantLocation"
+              class="form-control"
+              placeholder="e.g., Living Room, Bedroom windowsill"
+              autocomplete="off"
+              required
+            />
+            <div id="locationError" class="error-message">Room or spot location is required.</div>
+          </div>
+
+          <div class="form-group">
+            <label for="plantSchedule">
+              Watering Schedule (Every N Days) <span class="required-star">*</span>
+            </label>
+            <input
+              type="number"
+              id="plantSchedule"
+              name="plantSchedule"
+              class="form-control"
+              placeholder="e.g., 7 (water once a week)"
+              min="1"
+              step="1"
+              required
+            />
+            <div id="scheduleError" class="error-message">Please enter a valid schedule of 1 day or more.</div>
+          </div>
+
+          <button type="submit" id="addPlantBtn" class="btn-primary">
+            <span>+ Add Plant</span>
+          </button>
+        </form>
+      </section>
+
+      <!-- Plant List Section -->
+      <section aria-labelledby="list-heading">
+        <div class="section-header">
+          <h2 id="list-heading" class="section-title">My Plants</h2>
+          <span id="plantCountBadge" class="badge-count">0</span>
+        </div>
+
+        <!-- Plant Cards Container -->
+        <div id="plantList" class="plant-list-container">
+          
+          <!-- Empty State Container -->
+          <div id="emptyState" class="empty-state">
+            <span class="empty-icon" aria-hidden="true">🪴</span>
+            <h3 class="empty-title">No plants added yet</h3>
+            <p class="empty-desc">
+              Add your first houseplant using the form above to preview how watering reminders look.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Footer Info -->
+      <footer class="app-footer">
+        <p>Single-screen prototype • Plain HTML, CSS & JavaScript</p>
+      </footer>
+
+    </div>
+
+    <!-- Plain JavaScript File -->
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

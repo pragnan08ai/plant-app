@@ -1,0 +1,6 @@
+{
+  "name": "Houseplant Water Tracker",
+  "description": "Simple zero-friction plant watering schedule tracker for busy houseplant parents.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
